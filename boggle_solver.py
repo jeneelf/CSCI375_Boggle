@@ -8,7 +8,7 @@ class Boggle:
         self.grid = grid
         self.row = len(grid)
         self.col = len(grid[0])
-        self.dictionary = set(word.lower() for word in dictionary)
+        self.dictionary = set(word.upper() for word in dictionary)
         self.solutions = set()
         self.directions = [(1, -1), (-1, 0), (-1, -1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         self.visited = [[False for _ in range(self.col)] for _ in range(self.row)]
@@ -21,7 +21,7 @@ class Boggle:
 
     def setDictionary(self, dictionary):
         """Setting Dictionary"""
-        self.dictionary = set(word.lower() for word in dictionary)
+        self.dictionary = set(word.upper() for word in dictionary)
 
     def getSolution(self):
         """Finds all words in the grid that are in the dictionary"""
@@ -44,11 +44,11 @@ class Boggle:
         # Handle special tiles
         tile = self.grid[row][col]
         if tile == "Qu":
-            tile = "qu"
+            tile = "QU"
         elif tile == "St":
-            tile = "st"
+            tile = "ST"
         else:
-            tile = tile.lower()
+            tile = tile.upper()
 
         currWord += tile
 
